@@ -1,0 +1,505 @@
+class Idioma:
+    """Dicionário de textos PT/EN usado por todas as telas."""
+
+    ATUAL = "pt"
+
+    TEXTOS = {
+        "pt": {
+
+            # Comuns a várias telas
+            "comum.id": "ID",
+            "comum.nome": "Nome",
+            "comum.novo": "Novo",
+            "comum.salvar": "Salvar",
+            "comum.alterar": "Alterar",
+            "comum.excluir": "Excluir",
+            "comum.fechar": "Fechar",
+            "comum.cancelar": "Cancelar",
+            "comum.confirmacao": "Confirmação",
+            "comum.erro_prefixo": "Erro: ",
+            "comum.selecione_da_lista": "Selecione um registro na lista.",
+            "comum.erro_nome_obrigatorio": "O nome é obrigatório.",
+            "comum.erro_data_obrigatoria": "Informe a data.",
+            "comum.erro_numero": "informe um número válido (use ponto para decimais, ex.: 1500.50).",
+            "comum.erro_inteiro": "informe um número inteiro (ex.: 3).",
+            "comum.erro_data": "informe a data no formato DD/MM/AAAA (ex.: 30/09/2026).",
+            "comum.erro_registro_vinculado": "Não é possível excluir: existem registros vinculados.",
+            "comum.erro_registro_duplicado": "Já existe um registro com esses dados.",
+            "comum.erro_texto_longo": "Um dos textos ultrapassa o tamanho permitido.",
+            "comum.erro_inesperado": "Não foi possível concluir a operação.",
+
+            # Tela de Estados
+            "estado.janela_titulo": "Cadastro de Estados",
+            "estado.titulo": "Cadastro de Estados",
+            "estado.dados_frame": "Dados do estado",
+            "estado.sigla": "Sigla",
+            "estado.confirmar_exclusao": "Deseja realmente excluir este estado?",
+            "estado.cadastrado_sucesso": "Estado cadastrado com sucesso!",
+            "estado.atualizado_sucesso": "Estado atualizado com sucesso!",
+            "estado.excluido_sucesso": "Estado excluído com sucesso!",
+            "estado.nao_encontrado": "Estado não encontrado.",
+            "estado.selecione_da_lista": "Selecione um estado na lista.",
+            "estado.erro_ao_excluir": "Problemas ao excluir estado",
+            "estado.erro_sigla_tamanho": "A sigla deve possuir exatamente 2 caracteres.",
+
+            # Tela de Cidades
+            "cidade.janela_titulo": "Cadastro de Cidades",
+            "cidade.titulo": "Cadastro de Cidades",
+            "cidade.dados_frame": "Dados da cidade",
+            "cidade.estado": "Estado",
+            "cidade.confirmar_exclusao": "Deseja realmente excluir esta cidade?",
+            "cidade.cadastrado_sucesso": "Cidade cadastrada com sucesso!",
+            "cidade.atualizado_sucesso": "Cidade atualizada com sucesso!",
+            "cidade.excluido_sucesso": "Cidade excluída com sucesso!",
+            "cidade.selecione_da_lista": "Selecione uma cidade na lista.",
+            "cidade.erro_estado_obrigatorio": "Selecione o estado.",
+
+            # Tela de Tipos de Imóvel
+            "tipo_imovel.janela_titulo": "Cadastro de Tipos de Imóvel",
+            "tipo_imovel.titulo": "Cadastro de Tipos de Imóvel",
+            "tipo_imovel.cadastrado_sucesso": "Tipo de imóvel cadastrado com sucesso!",
+            "tipo_imovel.atualizado_sucesso": "Tipo de imóvel atualizado com sucesso!",
+            "tipo_imovel.excluido_sucesso": "Tipo de imóvel excluído com sucesso!",
+
+            # Tela de Status de Imóvel
+            "status_imovel.janela_titulo": "Cadastro de Status de Imóvel",
+            "status_imovel.titulo": "Cadastro de Status de Imóvel",
+            "status_imovel.cadastrado_sucesso": "Status cadastrado com sucesso!",
+            "status_imovel.atualizado_sucesso": "Status atualizado com sucesso!",
+            "status_imovel.excluido_sucesso": "Status excluído com sucesso!",
+
+            # Tela de Proprietários
+            "proprietario.janela_titulo": "Cadastro de Proprietários",
+            "proprietario.titulo": "Cadastro de Proprietários",
+            "proprietario.dados_frame": "Dados do proprietário",
+            "proprietario.cpf": "CPF",
+            "proprietario.telefone": "Telefone",
+            "proprietario.confirmar_exclusao": "Deseja realmente excluir este proprietário?",
+            "proprietario.cadastrado_sucesso": "Proprietário cadastrado com sucesso!",
+            "proprietario.atualizado_sucesso": "Proprietário atualizado com sucesso!",
+            "proprietario.excluido_sucesso": "Proprietário excluído com sucesso!",
+            "proprietario.selecione_da_lista": "Selecione um proprietário na lista.",
+
+            # Tela de Imóveis
+            "imovel.janela_titulo": "Cadastro de Imóveis",
+            "imovel.titulo": "Cadastro de imóvel",
+            "imovel.dados_frame": "Dados do imóvel",
+            "imovel.estado": "Estado",
+            "imovel.cidade": "Cidade",
+            "imovel.tipo": "Tipo",
+            "imovel.area_total": "Área total (m²)",
+            "imovel.area_privativa": "Área privativa (m²)",
+            "imovel.valor_compra": "Valor de compra",
+            "imovel.data_compra": "Data da compra",
+            "imovel.comodos": "Cômodos",
+            "imovel.banheiros": "Banheiros",
+            "imovel.vagas": "Vagas",
+            "imovel.status": "Status",
+            "imovel.observacoes": "Observações",
+            "imovel.proprietarios_botao": "Proprietários",
+            "imovel.confirmar_exclusao": "Deseja realmente excluir este imóvel?",
+            "imovel.cadastrado_sucesso": "Imóvel cadastrado com sucesso!",
+            "imovel.atualizado_sucesso": "Imóvel atualizado com sucesso!",
+            "imovel.excluido_sucesso": "Imóvel excluído com sucesso!",
+            "imovel.selecione_da_lista": "Selecione um imóvel na lista.",
+            "imovel.erro_area_privativa": "A área privativa não pode exceder a área total.",
+            "imovel.erro_area_total": "A área total deve ser maior que zero.",
+            "imovel.erro_valor_negativo": "O valor de compra não pode ser negativo.",
+            "imovel.erro_cidade_obrigatoria": "Selecione a cidade.",
+            "imovel.erro_tipo_obrigatorio": "Selecione o tipo de imóvel.",
+            "imovel.erro_status_obrigatorio": "Selecione o status.",
+            "imovel.erro_area_privativa_negativa": "A área privativa não pode ser negativa.",
+            "imovel.erro_quantidade_negativa": "Cômodos, banheiros e vagas não podem ser negativos.",
+
+            # Popup Imóvel x Proprietário (N:N)
+            "imovel_proprietario.janela_titulo": "Proprietários de",
+            "imovel_proprietario.instrucao": "Marque os proprietários deste imóvel:",
+            "imovel_proprietario.percentual": "% de participação",
+            "imovel_proprietario.atualizado_sucesso": "Proprietários do imóvel atualizados com sucesso!",
+            "imovel_proprietario.erro_soma_percentual": "A soma dos percentuais não pode passar de 100%.",
+            "imovel_proprietario.erro_percentual_invalido": "O percentual deve estar entre 0 e 100.",
+
+            # Referências de valor de m² e IPTU
+            "referencia_m2.erro_valor_negativo": "O valor por m² não pode ser negativo.",
+            "referencia_iptu.erro_aliquota_negativa": "A alíquota do IPTU não pode ser negativa.",
+            "referencia_m2.salvo_sucesso": "Referência de m² salva com sucesso!",
+            "referencia_m2.atualizado_sucesso": "Referência de m² atualizada com sucesso!",
+            "referencia_m2.excluido_sucesso": "Referência de m² excluída com sucesso!",
+            "referencia_iptu.salvo_sucesso": "Referência de IPTU salva com sucesso!",
+            "referencia_iptu.atualizado_sucesso": "Referência de IPTU atualizada com sucesso!",
+            "referencia_iptu.excluido_sucesso": "Referência de IPTU excluída com sucesso!",
+
+            # Avaliações e lançamentos financeiros
+            "avaliacao.erro_valor_negativo": "O valor estimado não pode ser negativo.",
+            "despesa.erro_valor_negativo": "O valor da despesa não pode ser negativo.",
+            "avaliacao.salvo_sucesso": "Avaliação salva com sucesso!",
+            "avaliacao.atualizado_sucesso": "Avaliação atualizada com sucesso!",
+            "avaliacao.excluido_sucesso": "Avaliação excluída com sucesso!",
+            "despesa.erro_descricao_obrigatoria": "A descrição da despesa é obrigatória.",
+            "despesa.salvo_sucesso": "Despesa salva com sucesso!",
+            "despesa.atualizado_sucesso": "Despesa atualizada com sucesso!",
+            "despesa.excluido_sucesso": "Despesa excluída com sucesso!",
+            "movimentacao.erro_tipo_obrigatorio": "Selecione o tipo da movimentação.",
+            "movimentacao.salvo_sucesso": "Movimentação salva com sucesso!",
+            "movimentacao.atualizado_sucesso": "Movimentação atualizada com sucesso!",
+            "movimentacao.excluido_sucesso": "Movimentação excluída com sucesso!",
+
+            # Usuários
+            "usuario.erro_login_invalido": "Informe o login: até 50 caracteres, sem espaços (ex.: admin).",
+            "usuario.erro_excluir_logado": "Não é possível excluir o usuário que está logado.",
+            "usuario.erro_senha_obrigatoria": "Informe a senha.",
+            "usuario.salvo_sucesso": "Usuário salvo com sucesso!",
+            "usuario.atualizado_sucesso": "Usuário atualizado com sucesso!",
+            "usuario.excluido_sucesso": "Usuário excluído com sucesso!",
+
+            # Menu principal
+            "menu.cadastros_basicos": "Cadastros básicos",
+            "menu.estados": "Estados",
+            "menu.cidades": "Cidades",
+            "menu.tipos_imovel": "Tipos de imóvel",
+            "menu.status_imovel": "Status de imóvel",
+            "menu.imoveis": "Imóveis",
+            "menu.proprietarios": "Proprietários",
+            "menu.idioma": "Idioma",
+            "menu.sair": "Sair",
+
+            # Aplicação e login
+            "app.nome": "Patrimônio Imob",
+            "login.titulo": "Login",
+            "login.senha": "Senha",
+            "login.entrar": "Entrar",
+            "login.erro_campos_vazios": "Informe login e senha.",
+            "login.erro_credenciais": "Login ou senha inválidos.",
+
+            # Textos comuns (novos)
+            "comum.email": "E-mail",
+            "comum.tipo": "Tipo",
+            "comum.valor": "Valor",
+            "comum.data": "Data",
+            "comum.formato_data": "(DD/MM/AAAA)",
+            "comum.confirmar_exclusao": "Deseja realmente excluir este registro?",
+
+            # Dashboard
+            "dashboard.titulo": "Dashboard — Patrimônio Imobiliário",
+            "dashboard.imoveis": "Imóveis",
+            "dashboard.valor_compra_total": "Valor de compra total",
+            "dashboard.valor_estimado_total": "Valor estimado total",
+            "dashboard.valorizacao_total": "Valorização total",
+            "dashboard.iptu_estimado_anual": "IPTU estimado (anual)",
+            "dashboard.aba_por_cidade": "Resumo por cidade",
+            "dashboard.aba_por_estado": "Resumo por estado",
+            "dashboard.aba_por_imovel": "Por imóvel",
+            "dashboard.atualizar": "Atualizar",
+            "dashboard.local": "Local",
+            "dashboard.quantidade": "Qtd.",
+            "dashboard.valor_estimado": "Valor estimado",
+            "dashboard.valorizacao": "Valorização",
+            "dashboard.cidade_uf": "Cidade/UF",
+            "dashboard.iptu_estimado": "IPTU estimado",
+            "dashboard.aba_por_proprietario": "Por proprietário",
+            "dashboard.proprietario": "Proprietário",
+            "dashboard.compra_parte": "Compra (parte)",
+            "dashboard.estimado_parte": "Estimado (parte)",
+            "dashboard.valorizacao_parte": "Valorização (parte)",
+            "dashboard.iptu_parte": "IPTU (parte)",
+            "dashboard.nota_por_proprietario": "Parte = valor do imóvel × percentual do dono. Se um imóvel tem menos de 100% distribuído, a parte sem dono não entra.",
+
+            # Botões dos popups do imóvel
+            "imovel.avaliacoes_botao": "Avaliações",
+            "imovel.despesas_botao": "Despesas",
+            "imovel.movimentacoes_botao": "Movimentações",
+            "imovel_proprietario.adicionar": ">> Adicionar",
+            "imovel_proprietario.remover": "<< Remover",
+
+            # Popups: avaliações, despesas e movimentações
+            "avaliacao.janela_titulo": "Avaliações do imóvel",
+            "avaliacao.dados_frame": "Nova avaliação",
+            "avaliacao.data": "Data da avaliação",
+            "avaliacao.valor_estimado": "Valor estimado",
+            "avaliacao.valorizacao": "Valorização",
+            "despesa.janela_titulo": "Despesas do imóvel",
+            "despesa.dados_frame": "Nova despesa",
+            "despesa.descricao": "Descrição",
+            "movimentacao.janela_titulo": "Movimentações do imóvel",
+            "movimentacao.dados_frame": "Nova movimentação",
+            "movimentacao.tipo_entrada_aluguel": "entrada_aluguel",
+            "movimentacao.tipo_saida_manutencao": "saida_manutencao",
+            "movimentacao.tipo_outro": "outro",
+
+            # Referências
+            "referencia.dados_frame": "Dados da referência",
+            "referencia_m2.janela_titulo": "Referência de Valor por m²",
+            "referencia_m2.valor_m2": "Valor por m²",
+            "referencia_m2.valor_m2_coluna": "Valor/m²",
+            "referencia_iptu.janela_titulo": "Referência de IPTU",
+            "referencia_iptu.aliquota": "Alíquota",
+            "referencia_iptu.aliquota_dica": "Alíquota (ex.: 0.01 = 1%)",
+
+            # Usuários (tela)
+            "usuario.janela_titulo": "Cadastro de Usuários",
+            "usuario.dados_frame": "Dados do usuário",
+            "usuario.senha_dica": "(em branco = manter a senha atual)",
+            "usuario.login": "Login",
+
+            # Menu (novos itens)
+            "menu.referencia_m2": "Referência de valor m²",
+            "menu.referencia_iptu": "Referência de IPTU",
+            "menu.usuarios": "Usuários",
+            "menu.portugues": "Português",
+            "menu.ingles": "English",
+        },
+        "en": {
+
+            # Common to several screens
+            "comum.id": "ID",
+            "comum.nome": "Name",
+            "comum.novo": "New",
+            "comum.salvar": "Save",
+            "comum.alterar": "Edit",
+            "comum.excluir": "Delete",
+            "comum.fechar": "Close",
+            "comum.cancelar": "Cancel",
+            "comum.confirmacao": "Confirmation",
+            "comum.erro_prefixo": "Error: ",
+            "comum.selecione_da_lista": "Select a record from the list.",
+            "comum.erro_nome_obrigatorio": "Name is required.",
+            "comum.erro_data_obrigatoria": "Enter the date.",
+            "comum.erro_numero": "enter a valid number (use a dot for decimals, e.g. 1500.50).",
+            "comum.erro_inteiro": "enter a whole number (e.g. 3).",
+            "comum.erro_data": "enter the date as DD/MM/YYYY (e.g. 30/09/2026).",
+            "comum.erro_registro_vinculado": "Cannot delete: there are linked records.",
+            "comum.erro_registro_duplicado": "A record with this data already exists.",
+            "comum.erro_texto_longo": "One of the texts exceeds the allowed length.",
+            "comum.erro_inesperado": "The operation could not be completed.",
+
+            # States screen
+            "estado.janela_titulo": "State Registration",
+            "estado.titulo": "State Registration",
+            "estado.dados_frame": "State data",
+            "estado.sigla": "Abbreviation",
+            "estado.confirmar_exclusao": "Do you really want to delete this state?",
+            "estado.cadastrado_sucesso": "State registered successfully!",
+            "estado.atualizado_sucesso": "State updated successfully!",
+            "estado.excluido_sucesso": "State deleted successfully!",
+            "estado.nao_encontrado": "State not found.",
+            "estado.selecione_da_lista": "Select a state from the list.",
+            "estado.erro_ao_excluir": "Problem deleting state",
+            "estado.erro_sigla_tamanho": "The abbreviation must have exactly 2 characters.",
+
+            # Cities screen
+            "cidade.janela_titulo": "City Registration",
+            "cidade.titulo": "City Registration",
+            "cidade.dados_frame": "City data",
+            "cidade.estado": "State",
+            "cidade.confirmar_exclusao": "Do you really want to delete this city?",
+            "cidade.cadastrado_sucesso": "City registered successfully!",
+            "cidade.atualizado_sucesso": "City updated successfully!",
+            "cidade.excluido_sucesso": "City deleted successfully!",
+            "cidade.selecione_da_lista": "Select a city from the list.",
+            "cidade.erro_estado_obrigatorio": "Select the state.",
+
+            # Property type screen
+            "tipo_imovel.janela_titulo": "Property Type Registration",
+            "tipo_imovel.titulo": "Property Type Registration",
+            "tipo_imovel.cadastrado_sucesso": "Property type registered successfully!",
+            "tipo_imovel.atualizado_sucesso": "Property type updated successfully!",
+            "tipo_imovel.excluido_sucesso": "Property type deleted successfully!",
+
+            # Property status screen
+            "status_imovel.janela_titulo": "Property Status Registration",
+            "status_imovel.titulo": "Property Status Registration",
+            "status_imovel.cadastrado_sucesso": "Status registered successfully!",
+            "status_imovel.atualizado_sucesso": "Status updated successfully!",
+            "status_imovel.excluido_sucesso": "Status deleted successfully!",
+
+            # Owners screen
+            "proprietario.janela_titulo": "Owner Registration",
+            "proprietario.titulo": "Owner Registration",
+            "proprietario.dados_frame": "Owner data",
+            "proprietario.cpf": "National ID",
+            "proprietario.telefone": "Phone",
+            "proprietario.confirmar_exclusao": "Do you really want to delete this owner?",
+            "proprietario.cadastrado_sucesso": "Owner registered successfully!",
+            "proprietario.atualizado_sucesso": "Owner updated successfully!",
+            "proprietario.excluido_sucesso": "Owner deleted successfully!",
+            "proprietario.selecione_da_lista": "Select an owner from the list.",
+
+            # Properties screen
+            "imovel.janela_titulo": "Property Registration",
+            "imovel.titulo": "Property registration",
+            "imovel.dados_frame": "Property data",
+            "imovel.estado": "State",
+            "imovel.cidade": "City",
+            "imovel.tipo": "Type",
+            "imovel.area_total": "Total area (m²)",
+            "imovel.area_privativa": "Private area (m²)",
+            "imovel.valor_compra": "Purchase value",
+            "imovel.data_compra": "Purchase date",
+            "imovel.comodos": "Rooms",
+            "imovel.banheiros": "Bathrooms",
+            "imovel.vagas": "Parking spots",
+            "imovel.status": "Status",
+            "imovel.observacoes": "Notes",
+            "imovel.proprietarios_botao": "Owners",
+            "imovel.confirmar_exclusao": "Do you really want to delete this property?",
+            "imovel.cadastrado_sucesso": "Property registered successfully!",
+            "imovel.atualizado_sucesso": "Property updated successfully!",
+            "imovel.excluido_sucesso": "Property deleted successfully!",
+            "imovel.selecione_da_lista": "Select a property from the list.",
+            "imovel.erro_area_privativa": "Private area cannot exceed total area.",
+            "imovel.erro_area_total": "Total area must be greater than zero.",
+            "imovel.erro_valor_negativo": "Purchase value cannot be negative.",
+            "imovel.erro_cidade_obrigatoria": "Select the city.",
+            "imovel.erro_tipo_obrigatorio": "Select the property type.",
+            "imovel.erro_status_obrigatorio": "Select the status.",
+            "imovel.erro_area_privativa_negativa": "Private area cannot be negative.",
+            "imovel.erro_quantidade_negativa": "Rooms, bathrooms and parking spots cannot be negative.",
+
+            # Property x Owner popup (N:N)
+            "imovel_proprietario.janela_titulo": "Owners of",
+            "imovel_proprietario.instrucao": "Check the owners of this property:",
+            "imovel_proprietario.percentual": "% share",
+            "imovel_proprietario.atualizado_sucesso": "Property owners updated successfully!",
+            "imovel_proprietario.erro_soma_percentual": "The shares cannot add up to more than 100%.",
+            "imovel_proprietario.erro_percentual_invalido": "The share must be between 0 and 100.",
+
+            # m² and IPTU reference values
+            "referencia_m2.erro_valor_negativo": "The value per m² cannot be negative.",
+            "referencia_iptu.erro_aliquota_negativa": "The IPTU rate cannot be negative.",
+            "referencia_m2.salvo_sucesso": "m² reference saved successfully!",
+            "referencia_m2.atualizado_sucesso": "m² reference updated successfully!",
+            "referencia_m2.excluido_sucesso": "m² reference deleted successfully!",
+            "referencia_iptu.salvo_sucesso": "IPTU reference saved successfully!",
+            "referencia_iptu.atualizado_sucesso": "IPTU reference updated successfully!",
+            "referencia_iptu.excluido_sucesso": "IPTU reference deleted successfully!",
+
+            # Appraisals and financial entries
+            "avaliacao.erro_valor_negativo": "The estimated value cannot be negative.",
+            "despesa.erro_valor_negativo": "The expense amount cannot be negative.",
+            "avaliacao.salvo_sucesso": "Appraisal saved successfully!",
+            "avaliacao.atualizado_sucesso": "Appraisal updated successfully!",
+            "avaliacao.excluido_sucesso": "Appraisal deleted successfully!",
+            "despesa.erro_descricao_obrigatoria": "The expense description is required.",
+            "despesa.salvo_sucesso": "Expense saved successfully!",
+            "despesa.atualizado_sucesso": "Expense updated successfully!",
+            "despesa.excluido_sucesso": "Expense deleted successfully!",
+            "movimentacao.erro_tipo_obrigatorio": "Select the transaction type.",
+            "movimentacao.salvo_sucesso": "Transaction saved successfully!",
+            "movimentacao.atualizado_sucesso": "Transaction updated successfully!",
+            "movimentacao.excluido_sucesso": "Transaction deleted successfully!",
+
+            # Users
+            "usuario.erro_login_invalido": "Enter the username: up to 50 characters, no spaces (e.g. admin).",
+            "usuario.erro_excluir_logado": "You cannot delete the user who is signed in.",
+            "usuario.erro_senha_obrigatoria": "Enter the password.",
+            "usuario.salvo_sucesso": "User saved successfully!",
+            "usuario.atualizado_sucesso": "User updated successfully!",
+            "usuario.excluido_sucesso": "User deleted successfully!",
+
+            # Main menu
+            "menu.cadastros_basicos": "Basic registrations",
+            "menu.estados": "States",
+            "menu.cidades": "Cities",
+            "menu.tipos_imovel": "Property types",
+            "menu.status_imovel": "Property status",
+            "menu.imoveis": "Properties",
+            "menu.proprietarios": "Owners",
+            "menu.idioma": "Language",
+            "menu.sair": "Exit",
+
+            # Application and login
+            "app.nome": "Patrimônio Imob",
+            "login.titulo": "Login",
+            "login.senha": "Password",
+            "login.entrar": "Sign in",
+            "login.erro_campos_vazios": "Enter username and password.",
+            "login.erro_credenciais": "Invalid username or password.",
+
+            # Common texts (new)
+            "comum.email": "E-mail",
+            "comum.tipo": "Type",
+            "comum.valor": "Value",
+            "comum.data": "Date",
+            "comum.formato_data": "(DD/MM/YYYY)",
+            "comum.confirmar_exclusao": "Do you really want to delete this record?",
+
+            # Dashboard
+            "dashboard.titulo": "Dashboard — Real Estate Portfolio",
+            "dashboard.imoveis": "Properties",
+            "dashboard.valor_compra_total": "Total purchase value",
+            "dashboard.valor_estimado_total": "Total estimated value",
+            "dashboard.valorizacao_total": "Total appreciation",
+            "dashboard.iptu_estimado_anual": "Estimated IPTU (annual)",
+            "dashboard.aba_por_cidade": "Summary by city",
+            "dashboard.aba_por_estado": "Summary by state",
+            "dashboard.aba_por_imovel": "By property",
+            "dashboard.atualizar": "Refresh",
+            "dashboard.local": "Location",
+            "dashboard.quantidade": "Qty.",
+            "dashboard.valor_estimado": "Estimated value",
+            "dashboard.valorizacao": "Appreciation",
+            "dashboard.cidade_uf": "City/State",
+            "dashboard.iptu_estimado": "Estimated IPTU",
+            "dashboard.aba_por_proprietario": "By owner",
+            "dashboard.proprietario": "Owner",
+            "dashboard.compra_parte": "Purchase (share)",
+            "dashboard.estimado_parte": "Estimated (share)",
+            "dashboard.valorizacao_parte": "Appreciation (share)",
+            "dashboard.iptu_parte": "IPTU (share)",
+            "dashboard.nota_por_proprietario": "Share = property value × owner's percentage. If a property is less than 100% assigned, the unassigned share is not counted.",
+
+            # Property popup buttons
+            "imovel.avaliacoes_botao": "Appraisals",
+            "imovel.despesas_botao": "Expenses",
+            "imovel.movimentacoes_botao": "Transactions",
+            "imovel_proprietario.adicionar": ">> Add",
+            "imovel_proprietario.remover": "<< Remove",
+
+            # Popups: appraisals, expenses and transactions
+            "avaliacao.janela_titulo": "Appraisals of property",
+            "avaliacao.dados_frame": "New appraisal",
+            "avaliacao.data": "Appraisal date",
+            "avaliacao.valor_estimado": "Estimated value",
+            "avaliacao.valorizacao": "Appreciation",
+            "despesa.janela_titulo": "Expenses of property",
+            "despesa.dados_frame": "New expense",
+            "despesa.descricao": "Description",
+            "movimentacao.janela_titulo": "Transactions of property",
+            "movimentacao.dados_frame": "New transaction",
+            "movimentacao.tipo_entrada_aluguel": "rent income",
+            "movimentacao.tipo_saida_manutencao": "maintenance expense",
+            "movimentacao.tipo_outro": "other",
+
+            # References
+            "referencia.dados_frame": "Reference data",
+            "referencia_m2.janela_titulo": "Value per m² Reference",
+            "referencia_m2.valor_m2": "Value per m²",
+            "referencia_m2.valor_m2_coluna": "Value/m²",
+            "referencia_iptu.janela_titulo": "IPTU Reference",
+            "referencia_iptu.aliquota": "Rate",
+            "referencia_iptu.aliquota_dica": "Rate (e.g. 0.01 = 1%)",
+
+            # Users (screen)
+            "usuario.janela_titulo": "User Registration",
+            "usuario.dados_frame": "User data",
+            "usuario.senha_dica": "(blank = keep the current password)",
+            "usuario.login": "Username",
+
+            # Menu (new items)
+            "menu.referencia_m2": "Value per m² reference",
+            "menu.referencia_iptu": "IPTU reference",
+            "menu.usuarios": "Users",
+            "menu.portugues": "Português",
+            "menu.ingles": "English",
+        }
+    }
+
+    @classmethod
+    def definir(cls, codigo):
+        """Troca o idioma atual (pt ou en)."""
+        cls.ATUAL = codigo
+
+    @classmethod
+    def t(cls, chave):
+        """Devolve o texto da chave no idioma atual (ou a própria chave)."""
+        return cls.TEXTOS[cls.ATUAL].get(chave, chave)
