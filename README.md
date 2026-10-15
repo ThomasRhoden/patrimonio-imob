@@ -2,14 +2,16 @@
 
 # 🏠 Patrimônio Imob
 
-**Gestão do patrimônio imobiliário pessoal, com foco no Sul do Brasil (RS, SC e PR).**
+**Gestão do patrimônio imobiliário pessoal, com foco no Sul do Brasil (RS, SC e PR).**  
 Imóveis, co-proprietários, avaliações e um dashboard com valor estimado, valorização e IPTU.
+
+*Personal real-estate portfolio manager for Southern Brazil (RS, SC, PR): properties, co-owners, appraisals and a dashboard with estimated value, appreciation and property tax (IPTU).*
 
 ![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)
 ![MySQL/MariaDB](https://img.shields.io/badge/MySQL%20%2F%20MariaDB-XAMPP-4479A1?logo=mysql&logoColor=white)
 ![Tkinter](https://img.shields.io/badge/GUI-Tkinter%20%2F%20ttk-FFB000)
 ![Arquitetura](https://img.shields.io/badge/arquitetura-MVC%20%2B%20DAO-6A5ACD)
-![Status](https://img.shields.io/badge/status-pronto%20para%20apresenta%C3%A7%C3%A3o-2EA44F)
+![Status](https://img.shields.io/badge/status-ativo%20%2F%20portf%C3%B3lio-2EA44F)
 
 <img src="docs/screenshots/02_dashboard_por_cidade.png" alt="Dashboard do Patrimônio Imob" width="720">
 
@@ -19,6 +21,7 @@ Imóveis, co-proprietários, avaliações e um dashboard com valor estimado, val
 
 ## 📑 Sumário
 
+- [Visão geral · Overview](#-visão-geral--overview)
 - [Funcionalidades](#-funcionalidades)
 - [Telas](#-telas)
 - [Arquitetura MVC + DAO](#-arquitetura-mvc--dao)
@@ -26,7 +29,27 @@ Imóveis, co-proprietários, avaliações e um dashboard com valor estimado, val
 - [Como calcula valor e IPTU](#-como-calcula-valor-e-iptu)
 - [Como executar](#-como-executar)
 - [Documentação](#-documentação)
-- [Autor](#-autor)
+- [Status](#-status)
+- [Autor · Author](#-autor--author)
+
+---
+
+## 📖 Visão geral · Overview
+
+Aplicação desktop em Python (Tkinter) com MySQL/MariaDB, arquitetura MVC + DAO, desenvolvida como Projeto Integrador (PISM) do Técnico em Desenvolvimento de Sistemas do SENAC. Inclui documentação de requisitos, casos de uso, matriz MoSCoW, backlog e **casos de teste**.
+
+<details><summary>🇺🇸 English</summary>
+
+Python desktop app (Tkinter) backed by MySQL/MariaDB, MVC + DAO architecture, built as the capstone project (PISM) of SENAC's Systems Development technical course. Includes requirements, use cases, MoSCoW matrix, backlog and **test cases**.
+
+**Features:** login with hashed password · states/cities (cascading), property types and statuses · owners · properties with validation (private area ≤ total area) · N:N co-ownership (shares ≤ 100%) · appraisals, expenses and transactions history · dashboard by city, state, property (with IPTU) and owner · m² price and IPTU rate references · PT/EN UI switch.
+
+**Stack:** Python 3.10+ · Tkinter/ttk · MySQL/MariaDB (13 tables, 3 views, 1 procedure) · MVC + DAO.
+
+**How it computes:** estimated value = last appraisal → else private area × m² price → else purchase price; IPTU = estimated value × rate (city + type). It's an estimate, not the official municipal value.
+
+**Run:** start MySQL/MariaDB → clone → create venv → `pip install -r requirements.txt` → copy `.env.example` to `.env` → run `app/migrations/patrimonio_imob_full.sql`, `views_procedures.sql`, `dados_iniciais.sql` in that order → `python seed_inicial.py` (creates login) → `python main.py`. The demo dashboard should show 14 properties.
+</details>
 
 ---
 
@@ -67,6 +90,12 @@ Imóveis só nas cidades com alíquota de IPTU conferida em fonte oficial (fonte
 | <img src="docs/screenshots/05b_proprietarios_erro_soma.png" width="420"> | <img src="docs/screenshots/06_avaliacoes_do_imovel.png" width="420"> |
 | **Dashboard — por proprietário** | **Dashboard em inglês** |
 | <img src="docs/screenshots/08_dashboard_por_proprietario.png" width="420"> | <img src="docs/screenshots/07_dashboard_en.png" width="420"> |
+
+---
+
+## 🧰 Stack
+
+Python 3.10+ · Tkinter/ttk · MySQL/MariaDB · arquitetura MVC + DAO · hash de senha · interface PT/EN
 
 ---
 
@@ -130,23 +159,19 @@ Na aba *Por proprietário*, cada valor é multiplicado pelo percentual do dono (
 
 ## 🚀 Como executar
 
-Windows + XAMPP + MySQL Workbench. Precisa de **Python 3.10 ou mais novo** (no instalador, marque *Add python.exe to PATH*), XAMPP, MySQL Workbench e Git.
+Pré-requisitos: **Python 3.10+** (no Windows, marque *Add python.exe to PATH*; o Tcl/Tk do Tkinter já vem no instalador), um servidor **MySQL ou MariaDB** (ex.: XAMPP) e um cliente SQL (ex.: MySQL Workbench). Git.
 
-> **Tcl/Tk?** É a biblioteca gráfica que o Tkinter usa para desenhar as janelas. Ela já vem no instalador do Python para Windows (opção *tcl/tk and IDLE*, marcada por padrão): não há nada para instalar à parte.
-
-1. No *XAMPP Control Panel*, clique em **Start** no **MySQL** (fica verde).
-2. Clone e entre na pasta: `git clone https://github.com/ThomasRhoden/patrimonio-imob.git` e `cd patrimonio-imob`
-3. Ambiente virtual: `python -m venv .venv` e `.\.venv\Scripts\Activate.ps1`
+1. Inicie o MySQL/MariaDB (no XAMPP: **Start** em MySQL).
+2. Clone: `git clone https://github.com/ThomasRhoden/patrimonio-imob.git` e `cd patrimonio-imob`
+3. Ambiente virtual: `python -m venv .venv` e ative (`.venv\Scripts\Activate.ps1` no Windows · `source .venv/bin/activate` no Linux/macOS)
 4. Dependências: `python -m pip install -r requirements.txt`
-5. Configuração: `copy .env.example .env` (já vem com o padrão do XAMPP: `root`, sem senha, `localhost`, `3306`).
-6. Banco, no **MySQL Workbench**:
-   - Conecte em `localhost`, porta `3306`, usuário `root`, senha em branco (use a conexão *Local instance* ou crie uma no **+** ao lado de *MySQL Connections*). Se avisar que o servidor é incompatível, é porque o XAMPP usa MariaDB: clique em **Continue Anyway**.
-   - Para cada arquivo de `app/migrations/`, **nesta ordem**: *File → Open SQL Script…* → escolha o arquivo → clique no **raio** (⚡ *Execute*) → confira no painel *Output* que não há nenhum ❌ vermelho. Na primeira execução aparecem avisos amarelos ⚠️ como `1305 PROCEDURE ... does not exist` ou `DATABASE ... doesn't exist`: são normais (o script tenta apagar antes de criar).
-     1. `patrimonio_imob_full.sql` (cria o banco e as 13 tabelas; apaga o banco se já existir)
-     2. `views_procedures.sql` (3 views e 1 procedure; o Workbench entende o `DELIMITER $$`, não precisa mudar nada)
-     3. `dados_iniciais.sql` (dados da demo)
-7. Primeiro acesso: `python seed_inicial.py` (pede o login, Enter aceita `admin`, e a senha duas vezes).
-8. Rodar: `python main.py` e entrar com esse login e senha. O dashboard deve mostrar **14 imóveis** e **IPTU estimado R$ 44.936,17**.
+5. Configuração: copie `.env.example` para `.env` (padrão do XAMPP: `root`, sem senha, `localhost`, `3306`).
+6. Banco: no cliente SQL, conecte em `localhost:3306` e execute os arquivos de `app/migrations/` **nesta ordem** (no Workbench: *File → Open SQL Script…* → ⚡ *Execute*). Avisos amarelos como `1305 PROCEDURE ... does not exist` na primeira execução são normais; com MariaDB, o Workbench pode alertar incompatibilidade: *Continue Anyway*.
+   1. `patrimonio_imob_full.sql` (cria o banco e as 13 tabelas; apaga o banco se já existir)
+   2. `views_procedures.sql` (3 views e 1 procedure)
+   3. `dados_iniciais.sql` (dados da demo)
+7. Primeiro acesso: `python seed_inicial.py` (Enter aceita `admin`; digite a senha duas vezes).
+8. Rodar: `python main.py`. O dashboard deve mostrar **14 imóveis** e **IPTU estimado R$ 44.936,17**.
 
 <details>
 <summary>🛠️ Problemas comuns</summary>
@@ -175,6 +200,12 @@ DB_NAME=patrimonio_imob
 
 ---
 
+## 📍 Status
+
+Ativo, projeto de portfólio (Projeto Integrador SENAC). *Active, portfolio project.*
+
+---
+
 ## 📚 Documentação
 
 | Documento | Conteúdo |
@@ -194,8 +225,10 @@ DB_NAME=patrimonio_imob
 
 ---
 
-## 👨‍💻 Autor
+## 👤 Autor · Author
 
-**Thomas Gonçalves** · SENAC · Técnico em Desenvolvimento de Sistemas · Projeto Integrador (PISM)
+**Thomas Rhoden Gonçalves** — Suporte de TI que programa e usa IA / IT support who codes and uses AI  
+SENAC Novo Hamburgo · Técnico em Desenvolvimento de Sistemas · Projeto Integrador (PISM)  
+✉️ rhodenthomas@gmail.com · [github.com/ThomasRhoden](https://github.com/ThomasRhoden)
 
-Projeto acadêmico: proprietários, CPFs e e-mails da demo são fictícios.
+Projeto acadêmico: proprietários, CPFs e e-mails da demo são fictícios. *Academic project: all demo data is fictitious.*
